@@ -1,3 +1,5 @@
+const { HOST, PORT } = process.env;
+
 module.exports = {
   /*
   ** Headers of the page
@@ -12,6 +14,10 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
+  },
+  server: {
+    port: PORT || 3001,
+    host: HOST || 'localhost'
   },
   /*
   ** Customize the progress bar color
