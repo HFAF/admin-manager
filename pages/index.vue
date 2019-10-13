@@ -24,6 +24,7 @@
 
 <script>
 import AppLogo from '~/components/AppLogo.vue'
+import firebase from "~/plugins/firebase.js"
 
 export default {
   components: {

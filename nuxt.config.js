@@ -24,6 +24,18 @@ module.exports = {
   */
   loading: { color: '#3B8070' },
   /*
+  ** Nuxt.js modules
+  */
+  modules: [
+    '@nuxtjs/dotenv',
+  ],
+  /*
+  ** Plugins to load before mounting the App
+  */
+  plugins: [
+    '~/plugins/firebase',
+  ],
+  /*
   ** Build configuration
   */
   build: {
