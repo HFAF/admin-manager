@@ -7,3 +7,4 @@ https://nuxtjs.org/guide/assets#webpacked
 
 **This directory is not required, you can delete it if you don't want to use it.**
 
+CSS とか ICON とかの assets の設定周りでいじりたいことはここのフォルダ階層に記述する
