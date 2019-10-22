@@ -1,63 +1,54 @@
-import { Configuration } from 'webpack';
-
-const { HOST, PORT } = process.env;
+import pkg from './package.json';
 
 export default {
+  mode: 'universal',
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
-    title: 'admin-manager',
+    title: pkg.name,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+      {
+        hid: 'description',
+        name: 'description',
+        content: pkg.description || ''
+      }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
-  },
-  server: {
-    port: PORT || 3001,
-    host: HOST || 'localhost'
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   /*
-  ** Customize the progress bar color
-  */
-  loading: { color: '#3B8070' },
+   ** Customize the progress-bar color
+   */
+  loading: { color: '#fff' },
   /*
-  ** Nuxt.js modules
-  */
-  modules: [
-    '@nuxtjs/dotenv',
+   ** Global CSS
+   */
+  css: ['ant-design-vue/dist/antd.css'],
+  /*
+   ** Plugins to load before mounting the App
+   */
+  plugins: ['@/plugins/antd-ui'],
+  /*
+   ** Nuxt.js dev-modules
+   */
+  buildModules: [
+    // Doc: https://github.com/nuxt-community/eslint-module
+    '@nuxtjs/eslint-module',
+    '@nuxt/typescript-build'
   ],
   /*
-  ** Plugins to load before mounting the App
-  */
-  plugins: [
-    '~/plugins/firebase',
-  ],
-  buildModules: ['@nuxt/typescript-build'],
+   ** Nuxt.js modules
+   */
+  modules: [],
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
     /*
-    ** Run ESLint on save
-    */
-    extend (config: Configuration, { isDev, isClient }: any) {
-      if (isDev && isClient) {
-        if (!config.module) {
-          return;
-        }
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
+     ** You can extend webpack config here
+     */
+    // extend(config, ctx) {}
   }
-}
-
+};
