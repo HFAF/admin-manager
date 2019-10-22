@@ -10,13 +10,11 @@
         ],
         "esModuleInterop": true,
         "experimentalDecorators": true,
-        "jsx": "preserve",
+        "resolveJsonModule": true,
+        "allowJs": true,
         "sourceMap": true,
         "strict": true,
-        "noImplicitAny": true,
         "noEmit": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": false,
         "baseUrl": ".",
         "paths": {
             "~/*": [
@@ -26,22 +24,13 @@
                 "./*"
             ]
         },
-        "allowJs": true,
         "types": [
             "@types/node",
-            "@nuxt/vue-app",
-            "@types/webpack",
-            "./types"
+            "@nuxt/types",
+            "@types/jest"
         ]
     },
-    "include": [
-        "types/**/*",
-        "components/**/*",
-        "layouts/**/*",
-        "middleware/**/*",
-        "pages/**/*",
-        "plugins/**/*",
-        "server/**/*",
-        "store/**/*"
+    "exclude": [
+        "node_modules"
     ]
 }
