@@ -13,6 +13,7 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "ant-design-vue": "^1.4.1",
     "firebase": "^7.2.0",
     "nuxt": "^2.0.0"
   },
