@@ -1,6 +1,8 @@
+import { Configuration } from 'webpack';
+
 const { HOST, PORT } = process.env;
 
-module.exports = {
+export default {
   /*
   ** Headers of the page
   */
@@ -35,6 +37,7 @@ module.exports = {
   plugins: [
     '~/plugins/firebase',
   ],
+  buildModules: ['@nuxt/typescript-build'],
   /*
   ** Build configuration
   */
@@ -42,8 +45,11 @@ module.exports = {
     /*
     ** Run ESLint on save
     */
-    extend (config, { isDev, isClient }) {
+    extend (config: Configuration, { isDev, isClient }: any) {
       if (isDev && isClient) {
+        if (!config.module) {
+          return;
+        }
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
