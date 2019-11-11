@@ -8,10 +8,10 @@ const config = {
   projectId: process.env.FB_PROJECTID,
   storageBucket: process.env.FB_STORAGE_BUCKET,
   messagingSenderId: process.env.FB_MESSAGING_SENDER_ID
-}
+};
 
 if (!firebase.apps.length) {
-  firebase.initializeApp(config)
+  firebase.initializeApp(config);
 }
 
-export default firebase
+export default firebase;

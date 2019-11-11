@@ -1,27 +1,63 @@
 {
   "name": "admin-manager",
   "version": "1.0.0",
-  "description": "Nuxt.js project",
-  "author": "清水紀行 <noriyuki.shimizu0612@gmail.com>",
+  "description": "My fabulous Nuxt.js project",
+  "author": "noriyuki shimizu <noriyuki.shimizu0612@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "start": "nuxt-ts start",
+    "generate": "nuxt-ts generate",
+    "lint": "eslint --fix --ext .ts,.vue --ignore-path .gitignore .",
+    "test": "jest",
+    "postmerge": "(git diff 'HEAD@{1}' --name-only | grep package.json > /dev/null) && npm ci || :"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run test"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix --ext .ts",
+      "git add"
+    ],
+    "*.vue": [
+      "eslint --fix --ext .vue",
+      "git add"
+    ]
   },
   "dependencies": {
-    "firebase": "^7.2.0",
-    "nuxt": "^2.0.0"
+    "@nuxt/typescript-runtime": "^0.2.2",
+    "ant-design-vue": "^1.1.10",
+    "firebase": "^7.2.1",
+    "nuxt": "^2.0.0",
+    "vue": "^2.6.10",
+    "vue-property-decorator": "^8.3.0"
   },
   "devDependencies": {
-    "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxt/typescript-build": "^0.3.2",
+    "@nuxtjs/eslint-config": "^1.0.1",
+    "@nuxtjs/eslint-config-typescript": "^0.1.3",
+    "@nuxtjs/eslint-module": "^1.0.0",
+    "@types/jest": "^24.0.19",
+    "@types/node": "^12.11.2",
+    "@vue/test-utils": "^1.0.0-beta.27",
     "babel-eslint": "^10.0.1",
-    "eslint": "^4.19.1",
-    "eslint-friendly-formatter": "^4.0.1",
-    "eslint-loader": "^2.1.1",
-    "eslint-plugin-vue": "^4.0.0"
+    "babel-jest": "^24.1.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "eslint-plugin-prettier": "^3.0.1",
+    "firebase-tools": "^7.7.0",
+    "husky": "^3.0.9",
+    "jest": "^24.1.0",
+    "lint-staged": "^9.4.2",
+    "prettier": "^1.16.4",
+    "ts-jest": "^24.1.0",
+    "vue-jest": "^4.0.0-0"
   }
 }
