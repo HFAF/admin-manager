@@ -6,8 +6,10 @@
   "private": true,
   "scripts": {
     "dev": "nuxt-ts",
+    "dev:firebase": "npm run generate && firebase serve",
     "build": "nuxt-ts build",
     "start": "nuxt-ts start",
+    "deploy": "firebase deploy",
     "generate": "nuxt-ts generate",
     "lint": "eslint --fix --ext .ts,.vue --ignore-path .gitignore .",
     "test": "jest",
