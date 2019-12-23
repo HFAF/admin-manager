@@ -22,12 +22,8 @@
     }
   },
   "lint-staged": {
-    "*.ts": [
-      "eslint --fix --ext .ts",
-      "git add"
-    ],
-    "*.vue": [
-      "eslint --fix --ext .vue",
+    "*.{vue,ts}": [
+      "npm run lint",
       "git add"
     ]
   },
