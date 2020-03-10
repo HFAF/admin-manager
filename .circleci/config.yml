@@ -1,3 +1,4 @@
+# pull request のタイミングで e2e が走るよう組んでおくよ
 version: 2
 jobs:
   deploy:
