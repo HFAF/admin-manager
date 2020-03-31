@@ -25,15 +25,10 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import Logo from '~/components/Logo.vue';
+import { Component, Vue } from 'nuxt-property-decorator';
 // import firebase from '~/plugins/firebase';
 
-@Component({
-  components: {
-    Logo
-  }
-})
+@Component
 export default class Index extends Vue {}
 </script>
 

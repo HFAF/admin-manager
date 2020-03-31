@@ -17,9 +17,6 @@
         "noEmit": true,
         "baseUrl": ".",
         "paths": {
-            "~/*": [
-                "./*"
-            ],
             "@/*": [
                 "./*"
             ]
@@ -27,7 +24,8 @@
         "types": [
             "@types/node",
             "@nuxt/types",
-            "@types/jest"
+            "@types/jest",
+            "./types"
         ]
     },
     "exclude": [

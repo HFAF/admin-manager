@@ -1,7 +1,30 @@
 import pkg from './package.json';
 
+require('dotenv').config();
+
+const {
+  FB_API_KEY,
+  FB_AUTH_DOMAIN,
+  FB_DATABASE_URL,
+  FB_PROJECTID,
+  FB_STORAGE_BUCKET,
+  FB_MESSAGING_SENDER_ID,
+  FB_APP_ID,
+  FB_MEASUREMENT_ID
+} = process.env;
+
 export default {
   mode: 'universal',
+  env: {
+    FB_API_KEY,
+    FB_AUTH_DOMAIN,
+    FB_DATABASE_URL,
+    FB_PROJECTID,
+    FB_STORAGE_BUCKET,
+    FB_MESSAGING_SENDER_ID,
+    FB_APP_ID,
+    FB_MEASUREMENT_ID
+  },
   /*
    ** Headers of the page
    */
@@ -29,7 +52,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/antd-ui'],
+  plugins: ['@/plugins/antd-ui', '@/plugins/firebase'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -50,5 +73,11 @@ export default {
      ** You can extend webpack config here
      */
     // extend(config, ctx) {}
+    babel: {
+      plugins: [
+        ['@babel/plugin-proposal-decorators', { legacy: true }],
+        ['@babel/plugin-proposal-class-properties', { loose: true }]
+      ]
+    }
   }
 };
