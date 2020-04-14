@@ -34,7 +34,7 @@
     "firebase": "7.13.2",
     "nuxt": "^2.0.0",
     "nuxt-property-decorator": "2.5.1",
-    "vue": "^2.6.10"
+    "vue": "2.6.11"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "0.6.2",
@@ -57,7 +57,8 @@
     "lint-staged": "^9.4.2",
     "prettier": "^1.16.4",
     "ts-jest": "^24.1.0",
-    "vue-jest": "^4.0.0-0"
+    "vue-jest": "^4.0.0-0",
+    "vue-template-compiler": "2.6.11"
   },
   "engines": {
     "node": ">= 10.7.0",
